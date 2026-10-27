@@ -1,0 +1,4 @@
+{"ts":"2026-10-26T20:48:14+08:00","step":1,"in":20000,"out":1100,"reqs":1,"cache_read":10000,"cost":0.0042,"src":"opencode.db","session":"fx-1"}
+{"ts":"2026-10-26T20:55:40+08:00","step":1,"in":21000,"out":1000,"reqs":1,"cache_read":10000,"cost":0.0049,"src":"opencode.db","session":"fx-1","note":"第一次 gate 没过，补了 collect/ 断言"}
+{"ts":"2026-10-26T21:05:00+08:00","step":2,"in":18000,"out":900,"reqs":1,"cache_read":9000,"cost":0.0031}
+{"ts":"2026-10-26T21:08:30+08:00","step":2,"in":9000,"out":400,

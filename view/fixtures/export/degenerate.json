@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "run": {
+  "id": "export-degenerate-20260101T010000",
+  "root": "D:\\...\\view\\fixtures\\export",
+  "started_at": "unknown",
+  "finished_at": "unknown",
+  "goal": "unknown",
+  "model": "unknown",
+  "rounds": "unknown",
+  "rounds_coverage": {
+   "rows_total": 0,
+   "rows_with_reqs": 0
+  },
+  "tokens": {
+   "input": "unknown",
+   "output": "unknown",
+   "reasoning": "unknown",
+   "cache_read": "unknown",
+   "cache_write": "unknown",
+   "complete": false
+  },
+  "cost": {
+   "usd": "unknown",
+   "complete": false,
+   "basis": "unknown",
+   "unknown_rows": 0
+  },
+  "verdict": "unknown",
+  "sources": [
+   {
+    "kind": "plan_json",
+    "path": ".plan/plan.json",
+    "present": false,
+    "readable": false,
+    "note": "目录不存在"
+   },
+   {
+    "kind": "ledger",
+    "path": ".plan/ledger.jsonl",
+    "present": false,
+    "readable": false,
+    "note": "目录不存在"
+   },
+   {
+    "kind": "artifacts",
+    "path": ".",
+    "present": true,
+    "readable": true,
+    "note": "只读快照"
+   }
+  ],
+  "degraded": true,
+  "degraded_reasons": [
+   "no_plan_dir 目标目录没有 .plan/，没有步骤可归一化"
+  ],
+  "steps": []
+ }
+}

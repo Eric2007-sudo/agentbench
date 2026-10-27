@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "basis": "trace.md 里写明、但没有被 plan.json 任何 accept 断言覆盖的条款，人工登记（contract/dimensions.md §2.2）。evidence 一律指到 contract/trace.md 的真实行号；level 只表示「这一条现在靠什么证据」，不表示「做完了」。",
+ "points": [
+  {
+   "id": "clause:null-vs-unknown",
+   "clause": "null（已知为空/不适用）、\"unknown\"（拿不到）、0（真的 0）三态不许混用；严禁用 0 冒充缺失值",
+   "level": "semantic",
+   "evidence": "contract/trace.md:251",
+   "reason": "人工依据：§4 第 248–257 行的三态定义被逐条对照读过，但没有一条门禁断言能机械判「某字段有没有拿 0 冒充缺失」；semantic 只说明有人看过，不算通过。"
+  },
+  {
+   "id": "clause:no-0-0",
+   "clause": "任何情况下不许出现 0/0、NaN、0% 当结论",
+   "level": "none",
+   "evidence": "contract/trace.md:263",
+   "reason": "未覆盖：门禁里没有针对 0/0、NaN、0% 的断言；本表只登记这个缺口，不假装验过。"
+  },
+  {
+   "id": "clause:readonly-sqlite",
+   "clause": "sqlite 必须用 ?mode=ro 只读连接；不建索引、不 VACUUM、不 ATTACH 可写库",
+   "level": "semantic",
+   "evidence": "contract/trace.md:239",
+   "reason": "人工依据：只读连接串由人读采集代码核对；本夹具的 score.json 4 条断言里没有这一条，无法升到 mechanical。"
+  },
+  {
+   "id": "clause:no-source-writes",
+   "clause": "不在来源目录落任何东西：不放临时文件、不放 __pycache__、不放锁文件或缓存",
+   "level": "none",
+   "evidence": "contract/trace.md:240",
+   "reason": "未覆盖：计划里没有覆盖来源目录清洁度的 file:absent 断言（唯一的 file:absent 指向夹具里的 run.json），本夹具 score.json 也没判过它，按⑥不能记 mechanical。"
+  },
+  {
+   "id": "clause:json-stdout-only",
+   "clause": "stdout 恰好一个 JSON 对象，所有提示与错误文本全部走 stderr",
+   "level": "none",
+   "evidence": "contract/trace.md:410",
+   "reason": "未覆盖：门禁只对产物文件做 grep/nogrep，没有断言 stdout 只出一个 JSON、人话走 stderr。"
+  },
+  {
+   "id": "clause:export-abc",
+   "clause": "导出 A/B/C 三条判据（导出=run.json 原文、stdout=落盘文件、信封不裁 run）各有一条自检用例",
+   "level": "none",
+   "evidence": "contract/trace.md:439",
+   "reason": "未覆盖：契约只要求「三条都必须在 --self-test 里各有一条用例」，门禁没有逐条机械断言这三条判据。"
+  },
+  {
+   "id": "clause:csv-utf8sig",
+   "clause": "CSV 用 utf-8-sig 编码、缺失值写 unknown、不适用写空串，null 与 unknown 必须可区分",
+   "level": "none",
+   "evidence": "contract/trace.md:455",
+   "reason": "未覆盖：门禁没有断言 CSV 的编码与空值写法。"
+  },
+  {
+   "id": "clause:determinism",
+   "clause": "同一份输入重跑导出字节相同：键序固定、浮点定点、不写时间戳与临时路径",
+   "level": "none",
+   "evidence": "contract/trace.md:471",
+   "reason": "未覆盖：门禁没有重跑逐字节比对的断言；本步的幂等只在 --self-test 内部验，不进门禁。"
+  }
+ ]
+}

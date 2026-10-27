@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "run": {
+  "id": "case-a-base",
+  "root": "D:\\...\\view\\fixtures\\case-a-new-failure",
+  "started_at": "2026-10-26T20:48:14+08:00",
+  "finished_at": "2026-10-26T21:05:00+08:00",
+  "goal": "（示意）回归夹具 A 的基准版：两条断言待修、一条未确认、一条命令是坏的",
+  "model": "unknown",
+  "rounds": 2,
+  "rounds_coverage": {"rows_total": 2, "rows_with_reqs": 2},
+  "tokens": {"input": 41000, "output": 2100, "reasoning": "unknown", "cache_read": 20000, "cache_write": "unknown", "complete": false},
+  "cost": {"usd": 0.03, "complete": false, "basis": "host", "unknown_rows": 1},
+  "verdict": "fail",
+  "sources": [
+   {"kind": "plan_json", "path": ".plan/plan.json", "present": true, "readable": true, "note": ""},
+   {"kind": "ledger", "path": ".plan/ledger.jsonl", "present": true, "readable": true, "note": ""}
+  ],
+  "degraded": true,
+  "degraded_reasons": [
+   "cost.unknown_rows:1 有 1 行账本没有 cost，cost.usd 只是下限",
+   "tokens.reasoning:unknown 账本没有 reasoning 分列"
+  ],
+  "steps": [
+   {
+    "n": 1,
+    "title": "写契约",
+    "lane": "collect",
+    "status": "done",
+    "planned_out": "contract/trace.md",
+    "artifacts": [
+     {"path": "contract/trace.md", "exists": true, "bytes": 9100, "sha256": "0000000000000000000000000000000000000000000000000000000000000001"}
+    ],
+    "asserts": {
+     "total": 5,
+     "passed": 3,
+     "failed": 1,
+     "timeout": 0,
+     "unacked": 1,
+     "items": [
+      {"expr": "file:exists:contract/trace.md", "kind": "exists", "result": "pass", "detail": ""},
+      {"expr": "file:exists:collect/old_dir.py", "kind": "exists", "result": "pass", "detail": ""},
+      {"expr": "cmd:python -m collect.score --self-test", "kind": "cmd", "result": "pass", "detail": "exit=0"},
+      {"expr": "grep:view/@contract/slices.md", "kind": "grep", "result": "fail", "detail": "文件不存在"},
+      {"expr": "ack:看板在 1280 宽下不横向滚动", "kind": "ack", "result": "unacked", "detail": ""}
+     ]
+    },
+    "assert_pass": {"first_pass_rate": 0.6, "final_pass_rate": 0.6},
+    "exit_code": 1,
+    "exit_code_src": "gate",
+    "rework": 1,
+    "first_failed": true,
+    "rounds": 2,
+    "tokens": {"input": 41000, "output": 2100, "reasoning": "unknown", "cache_read": 20000, "cache_write": "unknown", "complete": false},
+    "cost": {"usd": 0.03, "complete": false, "basis": "host", "unknown_rows": 1},
+    "rounds_detail": [
+     {"seq": 1, "at": "2026-10-26T20:48:14+08:00", "input": 20000, "output": 1100, "reasoning": "unknown", "cache_read": 10000, "cache_write": "unknown", "cost": {"usd": 0.0142, "est": false}, "rounds": 1, "note": "", "decision": null, "src": "ledger"},
+     {"seq": 2, "at": "2026-10-26T20:55:40+08:00", "input": 21000, "output": 1000, "reasoning": "unknown", "cache_read": 10000, "cache_write": "unknown", "cost": {"usd": "unknown", "est": false}, "rounds": 1, "note": "gate 第一遍不过", "decision": null, "src": "ledger"}
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "goal": "夹具：一份假目标目录的一次运行（有返工 + 坏行 + unknown），不依赖任何工具就能读",
+  "created": "2026-10-26T20:40:00+08:00",
+  "updated": "2026-10-26T21:10:02+08:00",
+  "exclude": [],
+  "acks": [],
+  "steps": [
+    {
+      "n": 1,
+      "title": "写契约",
+      "status": "done",
+      "out": "artifacts/slices.md",
+      "accept": [
+        "file:exists:contract/trace.md",
+        "grep:collect/@contract/slices.md"
+      ],
+      "depends": [],
+      "rounds": 2
+    },
+    {
+      "n": 2,
+      "title": "写采集器",
+      "status": "done",
+      "out": "artifacts/plan_dir.py",
+      "accept": [
+        "file:exists:collect/ingest/plan_dir.py",
+        "cmd:python -m collect.ingest.plan_dir --self-test"
+      ],
+      "depends": [
+        1
+      ],
+      "rounds": 1
+    }
+  ]
+}

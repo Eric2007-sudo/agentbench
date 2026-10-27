@@ -1,0 +1,8 @@
+[2026-10-26T21:02:10] gate #1 写契约
+  PASS  file:exists:contract/trace.md
+  PASS  grep:collect/@contract/slices.md
+
+[2026-10-26T21:10:02] gate #2 写采集器
+  PASS  file:exists:collect/ingest/plan_dir.py
+  PASS  cmd:python -m collect.ingest.plan_dir --self-test
+      exit=0

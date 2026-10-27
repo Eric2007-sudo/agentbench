@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "run": {
+  "id": "case-c-cur",
+  "root": "D:\\...\\view\\fixtures\\case-c-unchanged",
+  "started_at": "2026-10-26T20:48:14+08:00",
+  "finished_at": "2026-10-26T20:50:00+08:00",
+  "goal": "（示意）回归夹具 C 的本次版：一切照旧（两侧只有 run.id 不同）",
+  "model": "unknown",
+  "rounds": 1,
+  "rounds_coverage": {"rows_total": 1, "rows_with_reqs": 1},
+  "tokens": {"input": 20000, "output": 1100, "reasoning": 180, "cache_read": 10000, "cache_write": 0, "complete": true},
+  "cost": {"usd": 0.0115, "complete": true, "basis": "host", "unknown_rows": 0},
+  "verdict": "pass",
+  "sources": [
+   {"kind": "plan_json", "path": ".plan/plan.json", "present": true, "readable": true, "note": ""},
+   {"kind": "ledger", "path": ".plan/ledger.jsonl", "present": true, "readable": true, "note": ""}
+  ],
+  "degraded": false,
+  "degraded_reasons": [],
+  "steps": [
+   {
+    "n": 1,
+    "title": "写契约",
+    "lane": "collect",
+    "status": "done",
+    "planned_out": "contract/trace.md",
+    "artifacts": [
+     {"path": "contract/trace.md", "exists": true, "bytes": 9100, "sha256": "0000000000000000000000000000000000000000000000000000000000000001"}
+    ],
+    "asserts": {
+     "total": 2,
+     "passed": 2,
+     "failed": 0,
+     "timeout": 0,
+     "unacked": 0,
+     "items": [
+      {"expr": "file:exists:contract/trace.md", "kind": "exists", "result": "pass", "detail": ""},
+      {"expr": "grep:view/@contract/slices.md", "kind": "grep", "result": "pass", "detail": ""}
+     ]
+    },
+    "assert_pass": {"first_pass_rate": 1.0, "final_pass_rate": 1.0},
+    "exit_code": null,
+    "exit_code_src": null,
+    "rework": 0,
+    "first_failed": false,
+    "rounds": 1,
+    "tokens": {"input": 20000, "output": 1100, "reasoning": 180, "cache_read": 10000, "cache_write": 0, "complete": true},
+    "cost": {"usd": 0.0115, "complete": true, "basis": "host", "unknown_rows": 0},
+    "rounds_detail": [
+     {"seq": 1, "at": "2026-10-26T20:48:14+08:00", "input": 20000, "output": 1100, "reasoning": 180, "cache_read": 10000, "cache_write": 0, "cost": {"usd": 0.0115, "est": false}, "rounds": 1, "note": "", "decision": null, "src": "ledger"}
+    ]
+   }
+  ]
+ }
+}

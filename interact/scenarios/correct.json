@@ -1,0 +1,32 @@
+{
+  "disclaimer": "台词是编的，不代表真实用户",
+  "note": "第 2 轮改需求，看它能不能收敛到新值并把旧值清掉；台词由脚本按序喂入。",
+  "schema": 1,
+  "id": "correct",
+  "title": "中途改需求：看能不能收敛",
+  "max_turns": 3,
+  "max_usd": 0.05,
+  "done_after_turn": 1,
+  "checks": [
+    "file:exists:config.txt",
+    "grep:version=2@config.txt",
+    "nogrep:version=1@config.txt"
+  ],
+  "say": [
+    {
+      "turn": 1,
+      "text": "在当前目录建一个 config.txt，里面写一行 version=1。",
+      "clarify": false
+    },
+    {
+      "turn": 2,
+      "text": "改一下：把那一行改成 version=2，不要保留旧值。",
+      "clarify": false
+    },
+    {
+      "turn": 3,
+      "text": "确认一下现在文件里只有 version=2，别加别的内容。",
+      "clarify": false
+    }
+  ]
+}

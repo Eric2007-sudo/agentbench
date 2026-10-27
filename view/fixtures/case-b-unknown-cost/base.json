@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "run": {
+  "id": "case-b-base",
+  "root": "D:\\...\\view\\fixtures\\case-b-unknown-cost",
+  "started_at": "2026-10-26T20:48:14+08:00",
+  "finished_at": "2026-10-26T20:52:00+08:00",
+  "goal": "（示意）回归夹具 B 的基准版：整侧 cost.usd = unknown（一行费用都拿不到）",
+  "model": "unknown",
+  "rounds": 1,
+  "rounds_coverage": {"rows_total": 1, "rows_with_reqs": 1},
+  "tokens": {"input": 20000, "output": 1100, "reasoning": "unknown", "cache_read": 10000, "cache_write": "unknown", "complete": false},
+  "cost": {"usd": "unknown", "complete": false, "basis": "unknown", "unknown_rows": 2},
+  "verdict": "unknown",
+  "sources": [
+   {"kind": "plan_json", "path": ".plan/plan.json", "present": true, "readable": true, "note": ""},
+   {"kind": "ledger", "path": ".plan/ledger.jsonl", "present": true, "readable": true, "note": ""}
+  ],
+  "degraded": true,
+  "degraded_reasons": [
+   "cost.unknown_rows:2 两行账本都没有 cost，也没有价目，不许按均价编",
+   "host_db.missing 宿主 db 不存在，token/cost 回落账本"
+  ],
+  "steps": [
+   {
+    "n": 1,
+    "title": "写契约",
+    "lane": "collect",
+    "status": "done",
+    "planned_out": "contract/trace.md",
+    "artifacts": [
+     {"path": "contract/trace.md", "exists": true, "bytes": 9100, "sha256": "0000000000000000000000000000000000000000000000000000000000000001"}
+    ],
+    "asserts": {
+     "total": 2,
+     "passed": 2,
+     "failed": 0,
+     "timeout": 0,
+     "unacked": 0,
+     "items": [
+      {"expr": "file:exists:contract/trace.md", "kind": "exists", "result": "pass", "detail": ""},
+      {"expr": "grep:view/@contract/slices.md", "kind": "grep", "result": "pass", "detail": ""}
+     ]
+    },
+    "assert_pass": {"first_pass_rate": 1.0, "final_pass_rate": 1.0},
+    "exit_code": null,
+    "exit_code_src": null,
+    "rework": 0,
+    "first_failed": false,
+    "rounds": 1,
+    "tokens": {"input": 20000, "output": 1100, "reasoning": "unknown", "cache_read": 10000, "cache_write": "unknown", "complete": false},
+    "cost": {"usd": "unknown", "complete": false, "basis": "unknown", "unknown_rows": 2},
+    "rounds_detail": [
+     {"seq": 1, "at": "2026-10-26T20:48:14+08:00", "input": 20000, "output": 1100, "reasoning": "unknown", "cache_read": 10000, "cache_write": "unknown", "cost": {"usd": "unknown", "est": false}, "rounds": 1, "note": "", "decision": null, "src": "ledger"}
+    ]
+   }
+  ]
+ }
+}

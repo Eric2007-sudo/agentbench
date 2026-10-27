@@ -1,0 +1,37 @@
+{
+  "disclaimer": "台词是编的，不代表真实用户",
+  "note": "首轮故意不说清，看它问不问；台词由脚本按序喂入，不由模型生成。",
+  "schema": 1,
+  "id": "clarify",
+  "title": "首轮不说清：看它会不会先问",
+  "max_turns": 4,
+  "max_usd": 0.05,
+  "done_after_turn": 1,
+  "checks": [
+    "file:exists:calc.py",
+    "grep:42@calc.py",
+    "grep:#@calc.py"
+  ],
+  "say": [
+    {
+      "turn": 1,
+      "text": "我那个小脚本又跑不起来了，你帮我弄一下。",
+      "clarify": true
+    },
+    {
+      "turn": 2,
+      "text": "就是当前目录的 calc.py，跑起来要打印 42。",
+      "clarify": false
+    },
+    {
+      "turn": 3,
+      "text": "给它加一行注释，写清楚这脚本是干什么的。",
+      "clarify": false
+    },
+    {
+      "turn": 4,
+      "text": "好，就这样，别再改了。",
+      "clarify": false
+    }
+  ]
+}

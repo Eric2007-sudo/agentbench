@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "config": {
+  "path": "C:\\Users\\18120\\.config\\opencode\\opencode.json",
+  "present": true,
+  "readable": true
+ },
+ "providers_seen": 1,
+ "models_counted": 4,
+ "declared_inputs": [
+  "text"
+ ],
+ "per_model": {
+  "kouxian/deepseek-v4-flash": [
+   "text"
+  ],
+  "kouxian/deepseek-v4-pro": [
+   "text"
+  ],
+  "kouxian/deepseek-v4-pro-0813": [
+   "text"
+  ],
+  "kouxian/deepseek-v4.1-flash": [
+   "text"
+  ]
+ },
+ "modalities": [
+  {
+   "modality": "text",
+   "status": "measured",
+   "reason": null,
+   "evidence": "capabilities.input = [\"text\"]"
+  },
+  {
+   "modality": "image",
+   "status": "not_applicable",
+   "reason": "当前 provider 的模型声明 capabilities.input 不含该模态",
+   "evidence": "capabilities.input = [\"text\"]"
+  },
+  {
+   "modality": "audio",
+   "status": "not_applicable",
+   "reason": "当前 provider 的模型声明 capabilities.input 不含该模态",
+   "evidence": "capabilities.input = [\"text\"]"
+  },
+  {
+   "modality": "video",
+   "status": "not_applicable",
+   "reason": "当前 provider 的模型声明 capabilities.input 不含该模态",
+   "evidence": "capabilities.input = [\"text\"]"
+  },
+  {
+   "modality": "pdf",
+   "status": "not_applicable",
+   "reason": "当前 provider 的模型声明 capabilities.input 不含该模态",
+   "evidence": "capabilities.input = [\"text\"]"
+  }
+ ],
+ "to_measure": [
+  "模型：capabilities.input 含该模态（例如 [\"text\",\"image\"]），并经同一 provider 实际可调",
+  "夹具：一份带该模态输入的固定样例（图片 + 题面 + 期望产物），放 fixtures/ 下，只读",
+  "判分方式：机械判据（产物 hash + 断言）或明确的 jev 概率阈值口径"
+ ],
+ "note": "not_applicable = 这次的结构里没有这个模态，不是「测了得 0 分」，也不是「不支持」",
+ "degraded_reasons": []
+}

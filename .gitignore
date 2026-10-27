@@ -1,0 +1,22 @@
+# 本机运行状态与产物：不进版本库（换台机器没有意义）
+/.plan/
+/.orch/
+/runs/
+/out/
+/interact/.plan/
+/interact/out/
+
+# 注意：collect/fixtures/*/.plan/ 是**夹具**，必须保留，
+# 所以上面用根目录锚定（前导 /），不要写成裸 .plan/。
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
