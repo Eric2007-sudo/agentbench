@@ -1,0 +1,8 @@
+# 统一用 LF 存盘。
+#
+# 这不只是风格问题：view 的「导出 A」判据是**逐字节**比较
+# （out/fx.json 必须与 run.json 原文完全相同），而导出器按 LF 写。
+# 若检出时被转成 CRLF，这条判据在 Windows 上必假 ——
+# 实测：从 GitHub 全新 clone 后 view.cli --self-test 直接红 2 条（77 项里）。
+* text=auto eol=lf
+*.ps1 text eol=crlf
